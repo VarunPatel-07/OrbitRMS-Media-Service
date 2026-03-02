@@ -1,0 +1,17 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const ENV_CONFIG = {
+  PORT: process.env.PORT,
+
+  CACHED_DATABASE_HOST: process.env.CACHED_DATABASE_HOST,
+  CACHED_DATABASE_PORT: process.env.CACHED_DATABASE_PORT,
+  CACHED_DATABASE_PASSWORD: process.env.CACHED_DATABASE_PASSWORD,
+
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
+};
+
+export default ENV_CONFIG;

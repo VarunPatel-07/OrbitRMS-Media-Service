@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= errorCode %> — <%= errorTitle %></title>
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --text: #333;
+            --muted: #6c757d;
+            --accent: #007bff;
+            --border: #dee2e6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .error-container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 72px;
+            margin: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 10px 0 20px;
+        }
+
+        p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .debug-box {
+            text-align: left;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            border-left: 4px solid var(--border);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1><%= errorCode %></h1>
+        <h2><%= errorTitle %></h2>
+        
+        <p><%= errorMessage %></p>
+
+        <% if (errorDetail) { %>
+            <div class="debug-box">
+                <strong>Technical Details:</strong><br>
+                <code><%= errorDetail %></code>
+            </div>
+        <% } %>
+
+        <a href="<%= backUrl %>" class="btn">Return to OrbitRMS</a>
+    </div>
+
+</body>
+</html>

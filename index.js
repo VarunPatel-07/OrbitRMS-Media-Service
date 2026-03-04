@@ -1,7 +1,6 @@
 import express from "express";
 import path from "path";
 import mediaRouter from "./routes/media.js";
-import { connectCacheServer } from "./services/caching.js";
 
 const app = express();
 
@@ -25,19 +24,19 @@ app.get("/health", (req, res) => {
   });
 });
 
-// const startServer = async () => {
-//   try {
-//     await connectCacheServer();
-//     console.log("Connected to the cache client");
-//     app.listen(ENV_CONFIG.PORT, () => {
-//       console.log(`Media Service running on port ${ENV_CONFIG.PORT}`);
-//     });
-//   } catch (error) {
-//     console.error(`failed to start server ${error}`);
-//     process.exit(1);
-//   }
-// };
+const startServer = async () => {
+  try {
+    await connectCacheServer();
+    console.log("Connected to the cache client");
+    // app.listen(ENV_CONFIG.PORT, () => {
+    //   console.log(`Media Service running on port ${ENV_CONFIG.PORT}`);
+    // });
+  } catch (error) {
+    console.error(`failed to start server ${error}`);
+    process.exit(1);
+  }
+};
 
-// startServer();
-await connectCacheServer();
+startServer();
+
 export default app;

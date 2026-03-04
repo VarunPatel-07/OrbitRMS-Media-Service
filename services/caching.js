@@ -2,10 +2,13 @@ import { createClient } from "redis";
 import ENV_CONFIG from "../config/EnvConfig.js";
 
 const cacheClient = createClient({
+  username: "default",
   socket: {
     host: ENV_CONFIG.CACHED_DATABASE_HOST,
     port: ENV_CONFIG.CACHED_DATABASE_PORT,
   },
+  tls: true,
+  reconnectStrategy: false,
   password: ENV_CONFIG.CACHED_DATABASE_PASSWORD,
 });
 

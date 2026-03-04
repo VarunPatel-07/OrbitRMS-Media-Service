@@ -1,6 +1,6 @@
 import axios from "axios";
 import express from "express";
-import cacheClient from "../services/caching.js";
+import { getCacheClient } from "../services/caching.js";
 import { generateCloudinarySignedUrl } from "../services/cloudinary.js";
 
 const mediaRouter = express.Router();
@@ -22,6 +22,7 @@ mediaRouter.get("/stream/:folder/:id", async (req, res) => {
   const cacheKey = `media:${folder}:${id}`;
 
   try {
+    const cacheClient = await getCacheClient();
     const cachedDocument = await cacheClient.get(cacheKey);
 
     if (cachedDocument) {

@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import mediaRouter from "./routes/media.js";
+import { connectCacheServer } from "./services/caching.js";
 
 const app = express();
 
@@ -38,5 +39,5 @@ app.get("/health", (req, res) => {
 // };
 
 // startServer();
-
+await connectCacheServer();
 export default app;

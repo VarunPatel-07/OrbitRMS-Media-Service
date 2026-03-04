@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import mediaRouter from "./routes/media.js";
+import { getCacheClient } from "./services/caching.js";
 
 const app = express();
 
@@ -14,14 +15,26 @@ app.get("/", (req, res) => {
 
 app.use("/media", mediaRouter);
 
-app.get("/health", (req, res) => {
-  res.json({
-    status: "ok",
-    success: true,
-    service: "OrbitRMS Media Service",
-    message: "Welcome to the orbitrms media service",
-    uptime: process.uptime(),
-  });
+app.get("/health", async (req, res) => {
+  try {
+    await getCacheClient();
+    res.json({
+      status: "ok",
+      success: true,
+      service: "OrbitRMS Media Service",
+      message: "Welcome to the orbitrms media service Cache client is available",
+      uptime: process.uptime(),
+    });
+  } catch (error) {
+    res.json({
+      status: "ok",
+      success: true,
+      service: "OrbitRMS Media Service",
+      message: "Welcome to the orbitrms media service Cache client is not available",
+      uptime: process.uptime(),
+      error: error,
+    });
+  }
 });
 
 export default app;

@@ -21,16 +21,16 @@ app.get("/health", async (req, res) => {
     res.json({
       status: "ok",
       success: true,
-      service: "OrbitRMS Media Service",
-      message: "Welcome to the orbitrms media service Cache client is available",
+      service: "OrbitMedia Service",
+      message: "Welcome to the OrbitMedia service Cache client is available",
       uptime: process.uptime(),
     });
   } catch (error) {
     res.json({
       status: "ok",
       success: true,
-      service: "OrbitRMS Media Service",
-      message: "Welcome to the orbitrms media service Cache client is not available",
+      service: "OrbitMedia Service",
+      message: "Welcome to the OrbitMedia service Cache client is not available",
       uptime: process.uptime(),
       error: error,
     });

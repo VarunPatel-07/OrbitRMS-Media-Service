@@ -1,4 +1,4 @@
-# OrbitRMS Media Service
+# OrbitMedia Service
 
 A lightweight microservice that provides an **in-app PDF viewer** for the OrbitRMS platform. Instead of opening uploaded documents in an external browser tab, OrbitRMS renders them directly through this dedicated media service — delivering a seamless, embedded viewing experience.
 
@@ -110,11 +110,11 @@ The service will start on **http://localhost:500**
 
 ## 📡 API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/uploads/public/:folder/:id/:file_name` | Renders the embedded PDF viewer page |
-| `GET` | `/stream/:folder/:id` | Streams the PDF binary (used by the viewer iframe) |
-| `GET` | `/health` | Returns service health status and uptime |
+| Method | Endpoint                                 | Description                                        |
+| ------ | ---------------------------------------- | -------------------------------------------------- |
+| `GET`  | `/uploads/public/:folder/:id/:file_name` | Renders the embedded PDF viewer page               |
+| `GET`  | `/stream/:folder/:id`                    | Streams the PDF binary (used by the viewer iframe) |
+| `GET`  | `/health`                                | Returns service health status and uptime           |
 
 ### Health Check Response
 
@@ -122,8 +122,8 @@ The service will start on **http://localhost:500**
 {
   "status": "ok",
   "success": true,
-  "service": "OrbitRMS Media Service",
-  "message": "Welcome to the orbitrms media service",
+  "service": "OrbitMedia Service",
+  "message": "Welcome to the OrbitMedia service",
   "uptime": 123.456
 }
 ```
@@ -132,15 +132,15 @@ The service will start on **http://localhost:500**
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **Express** | Web framework |
-| **EJS** | Server-side templating |
-| **Cloudinary** | Cloud media storage & delivery |
-| **Redis** | Document caching layer |
-| **Axios** | HTTP client for fetching media |
-| **dotenv** | Environment variable management |
-| **Nodemon** | Development hot-reload |
+| Technology     | Purpose                         |
+| -------------- | ------------------------------- |
+| **Express**    | Web framework                   |
+| **EJS**        | Server-side templating          |
+| **Cloudinary** | Cloud media storage & delivery  |
+| **Redis**      | Document caching layer          |
+| **Axios**      | HTTP client for fetching media  |
+| **dotenv**     | Environment variable management |
+| **Nodemon**    | Development hot-reload          |
 
 ---
 

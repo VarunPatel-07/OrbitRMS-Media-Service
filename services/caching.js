@@ -17,10 +17,9 @@ cacheClient.on("error", (err) => {
   console.error("❌ Redis error:", err);
 });
 
-export const connectCacheServer = async () => {
+export const getCacheClient = async () => {
   if (!cacheClient.isOpen) {
     await cacheClient.connect();
   }
+  return cacheClient;
 };
-
-export default cacheClient;
